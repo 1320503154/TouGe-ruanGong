@@ -798,13 +798,13 @@ void top_sort(PseqList &L)
     {
         for (int i = 0; i < graph.vcount; i++)
         {
-            if (graph.vexs[i].degree == 0)
+            if (graph.vexs[i].degree == 0) // 说明该顶点的入度为0，可以进行拓扑排序
             {
-                // 说明该顶点的入度为0，可以进行拓扑排序
-                cout << graph.vexs[i].vertex << endl; // 打印该顶点
-                graph.vexs[i].degree = -1;            // 将该顶点的入度设置为-1，表示已经排序过
-                count++;                              // 已经排序过的顶点数加1
-                EdgeList edge = graph.vexs[i].edgelist;
+
+                cout << graph.vexs[i].vertex << endl;   // 打印该顶点
+                graph.vexs[i].degree = -1;              // 将该顶点的入度设置为-1，表示已经排序过
+                count++;                                // 已经排序过的顶点数加1
+                EdgeList edge = graph.vexs[i].edgelist; // 获取当前顶点的边表
                 while (edge)
                 {
                     // 将该顶点的所有邻接顶点的入度减1
